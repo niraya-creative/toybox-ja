@@ -21,8 +21,7 @@ func run() error {
 		return err
 	}
 
-	// TODO: connpassのAPIクライアントを生成する
-
+	cli := connpass.NewClient()
 	ctx := context.Background()
 	result, err := cli.Search(ctx, params)
 	if err != nil {
@@ -30,8 +29,7 @@ func run() error {
 	}
 
 	for _, e := range result.Events {
-		// TODO: イベントのタイトルを出力する
-
+		fmt.Println(e.Title)
 	}
 
 	return nil
