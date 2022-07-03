@@ -17,12 +17,14 @@ func main() {
 func run() error {
 	const url = "https://connpass.com/api/v1/event/?keyword=golang"
 	// TODO: GETメソッドのリクエストを生成する
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 
 	if err != nil {
 		return err
 	}
 
 	// TODO: http.DefaultClientでリクエストを送る
+	resp, err := http.DefaultClient.Do(req)
 
 	if err != nil {
 		return err
