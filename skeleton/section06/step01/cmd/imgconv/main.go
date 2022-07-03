@@ -1,4 +1,3 @@
-// TODO: cmd/imgconv/main.goに移動する
 package main
 
 import (
@@ -6,12 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	// TODO: imgconvパッケージをインポートする
+	imgconv "github.com/gohandson/toybox-ja/solution/section06/step01"
 )
 
 var (
-	flagTo   = PNG   // TODO: パッケージ名をつける
-	flagFrom = JPEG  // TODO: パッケージ名をつける
+	flagTo   = imgconv.PNG
+	flagFrom = imgconv.JPEG
 )
 
 func init() {
@@ -21,7 +20,7 @@ func init() {
 
 func main() {
 	// TODO: convertAllはパッケージ名をつけてエクスポートされたものに変える
-	if err := convertAll(os.Args[1], flagFrom, flagTo); err != nil {
+	if err := imgconv.convertAll(os.Args[1], flagFrom, flagTo); err != nil {
 		fmt.Fprintln(os.Stderr, "エラー:", err)
 		os.Exit(1)
 	}
